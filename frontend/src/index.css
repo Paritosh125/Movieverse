@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+/* === THEME COLORS === */
+@theme {
+    --color-primary-red: #e50914;
+    /* Netflix red */
+    --color-dark-bg: #141414;
+    /* Main dark background */
+    --color-dark-card: #1f1f1f;
+    /* Card and form background */
+    --color-gray-light: #b3b3b3;
+    /* Subtext */
+    --color-gray-border: #2f2f2f;
+    /* Subtle borders */
+
+    --font-main: "Poppins", sans-serif;
+    --font-alt: "Roboto", sans-serif;
+}
+
+/* === GLOBAL BODY === */
+body {
+    @apply bg-[var(--color-dark-bg)] text-white font-main min-h-screen;
+    background-attachment: fixed;
+}
+
+/* === SCROLLBAR === */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary-red);
+    border-radius: 8px;
+}
+
+/* === REUSABLE CLASSES === */
+.glass {
+    background: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(229, 9, 20, 0.3);
+    border-radius: 0.75rem;
+}
+
+.glow {
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.3);
+}
+
+/* === HOVER EFFECTS === */
+.hover-glow:hover {
+    box-shadow: 0 0 25px rgba(229, 9, 20, 0.6);
+    transform: translateY(-3px);
+    transition: all 0.3s ease;
+}
+
+.btn-red {
+    background-color: var(--color-primary-red);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 0.375rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-red:hover {
+    background-color: #b0060f;
+}
+
+/* === CARD STYLES === */
+.card {
+    background-color: var(--color-dark-card);
+    border: 1px solid var(--color-gray-border);
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 15px rgba(229, 9, 20, 0.3);
+}
+
+/* === TEXT === */
+.text-muted {
+    color: var(--color-gray-light);
+}
+
+.text-red {
+    color: var(--color-primary-red);
+}
+
+/* === HEADINGS === */
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-alt);
+    letter-spacing: 0.5px;
+}
