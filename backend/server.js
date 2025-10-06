@@ -22,7 +22,16 @@ const app = express();
 // 🔧 Middleware
 // ===============================
 app.use(express.json());
-app.use(cors());
+
+// ✅ CORS configuration
+const corsOptions = {
+    origin: [
+        "https://movieverse-125.vercel.app", // production frontend
+        "http://localhost:5173" // local frontend (optional)
+    ],
+    credentials: true, // allow sending cookies or auth headers
+};
+app.use(cors(corsOptions));
 
 // ===============================
 // 🧭 API Routes
