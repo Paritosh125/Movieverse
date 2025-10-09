@@ -21,42 +21,49 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <Navbar
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-          sortOption={sortOption}
-          setSortOption={setSortOption}
-          genreFilter={genreFilter}
-          setGenreFilter={setGenreFilter}
-        />
+        <div className="flex flex-col min-h-screen bg-black text-white">
+          {/* Navbar */}
+          <Navbar
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            sortOption={sortOption}
+            setSortOption={setSortOption}
+            genreFilter={genreFilter}
+            setGenreFilter={setGenreFilter}
+          />
 
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Home
-                searchTerm={searchTerm}
-                sortOption={sortOption}
-                genreFilter={genreFilter}
+          {/* Page Content */}
+          <main className="flex-grow">
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <Home
+                    searchTerm={searchTerm}
+                    sortOption={sortOption}
+                    genreFilter={genreFilter}
+                  />
+                }
               />
-            }
-          />
-          <Route path="/movies/:id" element={<MovieDetails />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route
-            path="/admin/dashboard"
-            element={
-              <ProtectedRoute adminOnly>
-                <AdminDashboard />
-              </ProtectedRoute>
-            }
-          />
-        </Routes>
-        <Route path="*" element={<NotFound />} />
-      </Router>
-      <Router>
-        <Footer />
+              <Route path="/movies/:id" element={<MovieDetails />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route
+                path="/admin/dashboard"
+                element={
+                  <ProtectedRoute adminOnly>
+                    <AdminDashboard />
+                  </ProtectedRoute>
+                }
+              />
+              {/* Catch-all route for 404 */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+
+          {/* Footer */}
+          <Footer />
+        </div>
       </Router>
     </AuthProvider>
   );
