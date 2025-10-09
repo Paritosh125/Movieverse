@@ -11,6 +11,7 @@ import Register from "./pages/Register.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import AdminDashboard from "./pages/AdminDashboard.jsx";
 import Footer from "./components/Footer.jsx";
+import NotFound from "./pages/NotFound.jsx";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -52,6 +53,7 @@ function App() {
             }
           />
         </Routes>
+        <Route path="*" element={<NotFound />} />
       </Router>
       <Router>
         <Footer />
